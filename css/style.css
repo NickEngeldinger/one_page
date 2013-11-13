@@ -8,4 +8,5 @@
 body{font-family:'district-thin'}
 h1,h2,h3{font-family:'citizen_slab'}
 .header h1,.header h3{color:#fff}
+.header h3{margin:0 0 2em 0}
 .vert-text h1{font-size:10em}
