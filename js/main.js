@@ -36,6 +36,5 @@ var insertCurrentYear = function() {
     }
 
     $('#currentYear').append(theYear);
-    console.log("THIS IS THE CURRENT YEAR",theYear)
 }
 insertCurrentYear();
