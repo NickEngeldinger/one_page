@@ -4,6 +4,7 @@
 @import 'font-awesome.min.css';
 @import 'main.css';
 
+/*** FONTS ***/
 @font-face 
     font-family 'polaris-regular'
     src url('../fonts/polaris-regular.eot')
@@ -24,14 +25,22 @@
     font-weight normal
     font-style normal
 
+/*** VARIABLES ***/
 btnGray = #666
 borderGray = lighten(btnGray, 10%)
 
+/*** MIXINS ***/
+
+
+/*** SHARED ELMENTS ***/
 body
     font-family 'district-thin'
 
 h1, h2, h3
     font-family 'polaris-regular'
+
+h2
+    line-height 38px
 
 .header
     h1, h3
@@ -59,3 +68,28 @@ h1, h2, h3
 
 .sidebar-nav
     font-size 14px
+
+/*** OUR ARTISTS ***/
+.img-circle
+    border solid 3px #fff
+
+.service-item
+    font-size 18px
+
+/*** CONTACT ***/
+form
+    margin 0 auto
+    margin-top 40px
+    width 400px
+
+    .form_error
+        display none
+        font-size 13px
+        margin-top 7px
+
+.form-control
+    color #090909
+    font-size 20px
+    padding-top 9px
+
+/** TODO: STYLE PLACEHOLDER TEXT **/

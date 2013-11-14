@@ -7,9 +7,15 @@
 @font-face{font-family:'district-thin';src:url("../fonts/district-thin.eot");src:url("../fonts/district-thin.eot?#iefix") format('embedded-opentype'),url("../fonts/district-thin.woff") format('woff'),url("../fonts/district-thin.ttf") format('truetype'),url("../fonts/district-thin.svg#ralewayregular") format('svg');font-weight:normal;font-style:normal}
 body{font-family:'district-thin'}
 h1,h2,h3{font-family:'polaris-regular'}
+h2{line-height:38px}
 .header h1,.header h3{color:#fff;margin-bottom:0}
 .header h3{font-size:4em;margin:10px 0 2em 0}
 .header hr{width:25%;margin:0 auto;margin-top:-10px}
 .vert-text h1{font-size:10em}
 #menu-toggle{background-color:#666;border-color:#757575}
 .sidebar-nav{font-size:14px}
+.img-circle{border:solid 3px #fff}
+.service-item{font-size:18px}
+form{margin:0 auto;margin-top:40px;width:400px;}
+form .form_error{display:none;font-size:13px;margin-top:7px}
+.form-control{color:#090909;font-size:20px;padding-top:9px}

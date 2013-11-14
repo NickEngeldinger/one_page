@@ -48,6 +48,9 @@
                 <li>
                     <a href="#location">Location</a>
                 </li>
+                <li>
+                    <a href="#bottom">Social Media</a>
+                </li>
             </ul>
         </div>
         <!-- /SIDE MENU -->
@@ -68,8 +71,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3 text-center">
-                        <h2>Subtle Sidebar is the Perfect Template for your Next Portfolio Website Project!</h2>
-                        <p class="lead">This template really has it all. It's up to you to customize it to your liking! It features some fresh photography courtesy of <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a>.</p>
+                        <h2>5150 Tattoo Studio in Salem, Oregon is your destination for the Northwest's finest ink.</h2>
+                        <p class="lead">Visit our studio for an amazing tattoo experience where one of our talented artist will bring your ink dreams to reality. <a target="_blank" href="#contact">Contact</a> us today to book an appointment.</p>
                     </div>
                 </div>
             </div>
@@ -81,15 +84,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-md-offset-4 text-center">
-                        <h2>Our Services</h2>
+                        <h2>Our Artists</h2>
                         <hr>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-2 col-md-offset-2 text-center">
                         <div class="service-item">
-                            <i class="service-icon fa fa-medkit"></i>
-                            <h4>Spacecraft Repair</h4>
+                            <img src="http://placekitten.com/150/150" class="img-circle">
+                            <h4>Stinky Winkerbean</h4>
                             <p>Did your navigation system shut down in the middle of that asteroid field? We can repair any dings and scrapes to your spacecraft!</p>
                         </div>
                     </div>
@@ -181,29 +184,34 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3 text-center">
-                        <h3>Contact us to book an appointment today!</h3>
-                        
-                        <form role="form">
+                        <h3>Contact us today to book an appointment!</h3>
+                            <form role="form">
                             <div class="form-group">
                                 <label for="contact_name" class="sr-only">Name</label>
-                                <input type="text" class="form-control" id="contact_name" placeholder="Name" />
-                                <p class="form_error">Please enter your name</p>
+                                <input type="text" class="form-control" id="contact_name" placeholder="Name" required />
+                                <p class="form_error">
+                                    <i class="fa fa-asterisk"></i>
+                                    Please enter your name
+                                </p>
                             </div>
                             <div class="form-group">
                                 <label for="contact_email" class="sr-only">Email</label>
-                                <input type="email" class="form-control" id="contact_email" placeholder="Email" />
-                                <p class="form_error">Please enter your email</p>
+                                <input type="email" class="form-control" id="contact_email" placeholder="Email" required />
+                                <p class="form_error">
+                                    <i class="fa fa-asterisk"></i>
+                                    Please enter your email
+                                </p>
                             </div>
                             <div class="form-group">
                                 <label for="message" class="sr-only">How can we help you?</label>
-                                <textarea class="form-control" placeholder="How can we help you?"></textarea>
-                                <p class="form_error">Let us know how we can help you</p>
+                                <textarea rows="6" class="form-control" placeholder="How can we help you?" required></textarea>
+                                <p class="form_error">
+                                    <i class="fa fa-asterisk"></i>
+                                    Let us know how we can help you
+                                </p>
                             </div>
-
                         </form>
-                        
-                            <a href="#" class="btn btn-lg btn-default">Click Me!</a>
-                            <a href="#" class="btn btn-lg btn-primary">Look at Me!</a>
+                        <a href="#" class="btn btn-lg btn-default">Send</a>
                     </div>
                 </div>
             </div>
@@ -217,21 +225,25 @@
         <!-- /MAP -->
 
         <!-- FOOTER -->
-        <footer>
+        <footer id="bottom">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3 text-center">
                         <ul class="list-inline">
                             <li>
-                                <a href="https://www.facebook.com/pages/5150-Tattoo-Studio/292394760802377">
+                                <a href="https://www.facebook.com/pages/5150-Tattoo-Studio/292394760802377" target="blank">
                                     <i class="fa fa-facebook fa-3x"></i>
                                 </a>
                             </li>
                             <li>
-                                <i class="fa fa-twitter fa-3x"></i>
+                                <a href="#" target="blank">
+                                    <i class="fa fa-twitter fa-3x"></i>
+                                </a>
                             </li>
                             <li>
-                                <i class="fa fa-dribbble fa-3x"></i>
+                                <a href="#" target="blank">
+                                    <i class="fa fa-instagram fa-3x"></i>
+                                </a>
                             </li>
                         </ul>
                         <div class="top-scroll">
