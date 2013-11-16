@@ -186,32 +186,36 @@
                     <div class="col-md-6 col-md-offset-3 text-center">
                         <h3>Contact us today to book an appointment!</h3>
                             <form role="form">
-                            <div class="form-group">
+                            <div class="form-group name_group">
                                 <label for="contact_name" class="sr-only">Name</label>
                                 <input type="text" class="form-control" id="contact_name" placeholder="Name" required />
-                                <p class="form_error">
+                                <p class="form_error name_error">
                                     <i class="fa fa-asterisk"></i>
                                     Please enter your name
                                 </p>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group email_group">
                                 <label for="contact_email" class="sr-only">Email</label>
                                 <input type="email" class="form-control" id="contact_email" placeholder="Email" required />
-                                <p class="form_error">
+                                <p class="form_error email_error">
                                     <i class="fa fa-asterisk"></i>
                                     Please enter your email
                                 </p>
+                                <p class="form_error address_error">
+                                    <i class="fa fa-asterisk"></i>
+                                    Please enter a valid email address
+                                </p>
                             </div>
-                            <div class="form-group">
-                                <label for="message" class="sr-only">How can we help you?</label>
-                                <textarea rows="6" class="form-control" placeholder="How can we help you?" required></textarea>
-                                <p class="form_error">
+                            <div class="form-group msg_group">
+                                <label for="contact_msg" class="sr-only">How can we help you?</label>
+                                <textarea rows="6" class="form-control" id="contact_msg" placeholder="How can we help you?" required></textarea>
+                                <p class="form_error msg_error">
                                     <i class="fa fa-asterisk"></i>
                                     Let us know how we can help you
                                 </p>
                             </div>
                         </form>
-                        <a href="#" class="btn btn-lg btn-default">Send</a>
+                        <button class="btn btn-lg btn-default" id="send_form">Send</button>
                     </div>
                 </div>
             </div>

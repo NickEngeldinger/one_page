@@ -1,4 +1,4 @@
-//SIDEBAR FUNCTIONALITY
+// SIDEBAR FUNCTIONALITY
 $("#menu-close").click(function(e) {
     e.preventDefault();
     $("#sidebar-wrapper").toggleClass("active");
@@ -9,7 +9,7 @@ $("#menu-toggle").click(function(e) {
     $("#sidebar-wrapper").toggleClass("active");
 });
       
-//SMOOTH SCROLLING
+// SMOOTH SCROLLING
 $(function() {
     $('a[href*=#]:not([href=#])').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') || location.hostname == this.hostname) {
@@ -27,7 +27,7 @@ $(function() {
     });
 });
 
-//COPYRIGHT YEAR
+// COPYRIGHT YEAR
 var insertCurrentYear = function() {
     var now = new Date;
     var theYear = now.getYear();
@@ -38,3 +38,85 @@ var insertCurrentYear = function() {
     $('#currentYear').append(theYear);
 }
 insertCurrentYear();
+
+// FORM VALIDATION
+var checkInputs = function() {
+    var name  = $('#contact_name').val();
+    var email = $('#contact_email').val();
+    var msg   = $('#contact_msg').val();
+
+    var checkName = function() {
+        if ( name.length < 1 ) {
+            $('.name_error').show();
+            $('.name_group').addClass('has-error');
+        }
+        else {
+            $('.name_error').hide();
+            $('.name_group').removeClass('has-error');
+            return true;
+        }
+    }
+
+    var checkEmail = function() {
+        if ( email.length < 1 ) {
+            $('.email_error').show();
+            $('.email_group').addClass('has-error');
+        }
+        else {
+            $('.email_error').hide();
+            $('.email_group').removeClass('.has-error');
+            return true;
+        }
+    }
+
+    var checkAddress = function(email_address) {
+        var re = /[^\s@]+@[^\s@]+\.[^\s@]+/;
+        return re.test(email_address);
+    }
+    
+    if ( !checkAddress(email) ) {
+        $('.address_error').show();
+        $('.email_group').addClass('has-error');
+    }
+    else {
+        $('.address_error').hide();
+        $('.email_group').removeClass('has-error');
+    }
+
+    var checkMsg = function() {
+        if ( msg.length < 1 ) {
+            $('.msg_error').show();
+            $('.msg_group').addClass('has-error');
+        }
+        else {
+            $('.msg_error').hide();
+            $('.msg_group').removeClass('has-error');
+            return true;
+        }
+    }
+
+    checkName();
+    checkEmail();
+    checkMsg();
+
+
+
+    
+
+    if ( checkName() & checkEmail() & checkAddress(email) & checkMsg() ) {
+        //TODO: ADD AJAX EMAIL SEND FUCNTION CALL
+        console.log('YOU HAVE SUCCESSFULLY COMPLETED THE FORM')
+
+    }
+    else {
+        console.log('There was a problem submitting the form, please try again.')
+    }
+}
+
+var ajxSuccessCallback = function() {
+
+}
+
+$('#send_form').click(function() {
+    checkInputs();
+});

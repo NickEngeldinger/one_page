@@ -16,6 +16,7 @@ h2{line-height:38px}
 .sidebar-nav{font-size:14px}
 .img-circle{border:solid 3px #fff}
 .artist-profile{font-size:18px}
-form{margin:0 auto;margin-top:40px;width:400px;}
-form .form_error{display:none;font-size:13px;margin-top:7px}
+form{margin:0 auto;margin-top:40px;width:400px}
+.form_error{color:#ff6;display:none;font-size:15px;margin-top:14px;text-align:left}
 .form-control{color:#090909;font-size:20px;padding-top:9px}
+.has-error .form-control{border-color:#ff6}
