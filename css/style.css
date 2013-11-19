@@ -8,10 +8,11 @@
 body{font-family:'district-thin'}
 h1,h2,h3{font-family:'polaris-regular'}
 h2{line-height:38px}
-hr{height:30px;border-style:solid;border-color:#fff;border-width:1px 0 0 0;border-radius:20px;margin:0 auto;width:300px}
+hr{height:30px;border-style:solid;border-color:#fff;border-width:1px 0 0 0;border-radius:20px;margin:0 auto;margin-top:-15px;width:300px}
 hr:before{display:block;content:"";height:30px;margin-top:-31px;border-style:solid;border-color:#fff;border-width:0 0 1px 0;border-radius:20px}
 .header h1,.header h3{color:#fff;margin-bottom:0}
-.header h3{font-size:4em;margin:-8px 0 2em 0}
+.header h3{font-size:4em;margin:-19px 0 2em 0}
+.header a{margin-top:-30px}
 .vert-text h1{font-size:10em}
 #menu-toggle{background-color:#666;border-color:#757575}
 .sidebar-nav{font-size:14px}
@@ -19,5 +20,10 @@ hr:before{display:block;content:"";height:30px;margin-top:-31px;border-style:sol
 .artist-profile{font-size:18px}
 form{margin:0 auto;margin-top:40px;width:400px}
 .form_error{color:#ff6;display:none;font-size:15px;margin-top:14px;text-align:left}
+.submit_error a{color:#ff6;line-height:30px;text-decoration:underline}
 .form-control{color:#090909;font-size:20px;padding-top:9px}
 .has-error .form-control{border-color:#ff6}
+.modal-dialog{width:300px;}
+.modal-dialog h4{font-family:'polaris-regular';text-align:center}
+.modal-dialog p{font-size:18px;text-align:center}
+.modal-backdrop{background-color:rgba(0,0,0,0.7)}

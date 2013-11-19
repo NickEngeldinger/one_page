@@ -92,7 +92,7 @@
                         <div class="artist-profile">
                             <img src="http://placekitten.com/150/150" class="img-circle">
                             <h4>Sally Winkerbean</h4>
-                            <p>Tattoist, mother, minecraft fan and lover of taco nights. I love dive bars and diry martinis.</p>
+                            <p>Tattoist, mother, minecraft fan and queen of taco nights. I love dive bars and diry martinis.</p>
                         </div>
                     </div>
                     <div class="col-md-2 text-center">
@@ -212,8 +212,14 @@
                                     Let us know how we can help you
                                 </p>
                             </div>
+                            <p class="form_error submit_error">
+                                <i class="fa fa-asterisk"></i>
+                                Sorry, there was an error submitting your form.<br />
+                                Please try again, or email us directly at <a href="joe@example.com">joe@example.com</a>
+                            </p>
                         </form>
                         <button class="btn btn-lg btn-default" id="send_form">Send</button>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -260,6 +266,22 @@
             </div>
         </footer>
         <!-- /FOOTER -->
+
+        <!-- FORM SUCCESS MODAL -->
+        <div class="modal fade" id="form_modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Thank You!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Your message has been sent.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /MODAL -->
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/jquery.js"><\/script>')</script>

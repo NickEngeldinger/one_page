@@ -51,6 +51,7 @@ hr
     border-width 1px 0 0 0
     border-radius 20px
     margin 0 auto
+    margin-top -15px
     width 300px
 
 hr:before 
@@ -70,10 +71,12 @@ hr:before
     
     h3
         font-size 4em
-        margin -8px 0 2em 0
+        margin -19px 0 2em 0
+
+    a
+        margin-top -30px
 
 .vert-text
-    
     h1
         font-size 10em
 
@@ -105,6 +108,11 @@ form
     margin-top 14px
     text-align left
 
+.submit_error a
+    color formError
+    line-height 30px
+    text-decoration underline
+
 .form-control
     color #090909
     font-size 20px
@@ -115,3 +123,20 @@ form
     border-color formError
 
 /** TODO: STYLE PLACEHOLDER TEXT COLOR DARKER JUST A BIT TO INCREASE CONTRAST **/
+
+/** CONTACT SUBMISSION MODAL **/
+
+.modal-dialog 
+    width 300px
+
+    h4
+        font-family 'polaris-regular'
+        text-align center
+
+    p
+        font-size 18px
+        text-align center
+
+.modal-backdrop
+    background-color rgba(0,0,0,0.7)
+

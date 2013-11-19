@@ -45,6 +45,9 @@ var checkInputs = function() {
     var email = $('#contact_email').val();
     var msg   = $('#contact_msg').val();
 
+    // Could I combine these functions into a loop that
+    // takes the few differences as parameters? Lot of
+    // repetition here
     var checkName = function() {
         if ( name.length < 1 ) {
             $('.name_error').show();
@@ -95,26 +98,42 @@ var checkInputs = function() {
         }
     }
 
+    var combined_validation = function() {
+    
+        var ajax_call = function() {
+            // TODO: ADD EMAIL AJAX SUBMISSION FUNCTION
+
+            var successCallback = function() {
+                //Fire modal thanking for messge
+                $('#form_modal').modal('show')
+            
+                //Blank form
+                $('#contact_name').val('');
+                $('#contact_email').val('');
+                $('#contact_msg').val('');
+
+                //Remove error message if previously displayed
+                $('.submit_error').hide();
+            }
+
+            var failureCallback = function() {
+            $('.submit_error').show();
+
+            }
+            //Dummy response for development
+            successCallback();
+        }
+
+        if ( checkName() & checkEmail() & checkAddress(email) & checkMsg() ) {
+            //TODO: ADD AJAX EMAIL SEND FUCNTION CALL
+            ajax_call();
+        }
+    }
+
     checkName();
     checkEmail();
     checkMsg();
-
-
-
-    
-
-    if ( checkName() & checkEmail() & checkAddress(email) & checkMsg() ) {
-        //TODO: ADD AJAX EMAIL SEND FUCNTION CALL
-        console.log('YOU HAVE SUCCESSFULLY COMPLETED THE FORM')
-
-    }
-    else {
-        console.log('There was a problem submitting the form, please try again.')
-    }
-}
-
-var ajxSuccessCallback = function() {
-
+    combined_validation();
 }
 
 $('#send_form').click(function() {
