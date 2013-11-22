@@ -144,10 +144,11 @@ $('#send_form').click(function() {
 google.maps.event.addDomListener(window, 'load', init);
 
 function init() {
-    var myLatLng = taco
+    var myLatLng = new google.maps.LatLng(44.954467, -122.983671);
     var mapOptions = {
         zoom : 15,
-        center : new google.maps.LatLng(44.954467, -122.983671),
+        center : myLatLng,
+        disableDefaultUI : true,
         styles : [
                     {
                         "featureType" : "water",
@@ -229,15 +230,6 @@ function init() {
                             }
                         ]
                     },
-                    /*{
-                        "featureType" : "road",
-                        "elementType" : "labels",
-                        "stylers" : [
-                            {
-                                "visibility" : "off"
-                            }
-                        ]
-                    },*/
                     {
                         "featureType" : "road.highway",
                         "elementType" : "geometry.fill",
@@ -286,8 +278,18 @@ function init() {
         ]
     };
     var mapElement = document.getElementById('location');
+    
     var map = new google.maps.Map(mapElement, mapOptions);
-    var marker = new google.maps.Marker({
-        position: my
+    
+    var mapIcon = 'http://icons.iconarchive.com/icons/mazenl77/I-like-buttons-3a/512/Cute-Ball-Go-icon.png'
+    
+    var mapWindowCopy = '<div><p>TEST TACO<hr><address>1234 SE Street</address></p></div>'
+    
+    var infoWindow = new google.maps.InfoWindow({
+        position : myLatLng,
+        content : mapWindowCopy,
     });
+    infoWindow.open(map)
+
+}
 
