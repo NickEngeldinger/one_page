@@ -146,7 +146,7 @@ google.maps.event.addDomListener(window, 'load', init);
 function init() {
     var myLatLng = new google.maps.LatLng(44.954467, -122.983671);
     var mapOptions = {
-        zoom : 15,
+        zoom : 14,
         center : myLatLng,
         disableDefaultUI : true,
         styles : [
@@ -280,16 +280,19 @@ function init() {
     var mapElement = document.getElementById('location');
     
     var map = new google.maps.Map(mapElement, mapOptions);
-    
-    var mapIcon = 'http://icons.iconarchive.com/icons/mazenl77/I-like-buttons-3a/512/Cute-Ball-Go-icon.png'
-    
-    var mapWindowCopy = '<div><p>TEST TACO<hr><address>1234 SE Street</address></p></div>'
-    
-    var infoWindow = new google.maps.InfoWindow({
-        position : myLatLng,
-        content : mapWindowCopy,
-    });
-    infoWindow.open(map)
+ 
+    var iconImage = {
+        url : 'img/map_icon.png',
+        size : new google.maps.Size(186, 72),
+        origin : new google.maps.Point(0, 0),
+        anchor : new google.maps.Point(88, 72)
+    }
 
+    var marker = new google.maps.Marker({
+        position : myLatLng,
+        map : map,
+        icon : iconImage,
+        clickable : false
+    });
 }
 
