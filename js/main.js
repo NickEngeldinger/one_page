@@ -144,6 +144,7 @@ $('#send_form').click(function() {
 google.maps.event.addDomListener(window, 'load', init);
 
 function init() {
+    var myLatLng = taco
     var mapOptions = {
         zoom : 15,
         center : new google.maps.LatLng(44.954467, -122.983671),
@@ -286,5 +287,7 @@ function init() {
     };
     var mapElement = document.getElementById('location');
     var map = new google.maps.Map(mapElement, mapOptions);
-}
+    var marker = new google.maps.Marker({
+        position: my
+    });
 
