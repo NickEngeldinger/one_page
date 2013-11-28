@@ -29,19 +29,20 @@
 btnGray = #666
 borderGray = lighten(btnGray, 10%)
 formError = #ff6
-//Bootstrap native error color #953b39
+BootstrapError = #953b39
 linkColor = #666
 linkHover = lighten(linkColor, 30%)
 
 /*** MIXINS ***/
-
+headerFont()
+    font-family 'polaris-regular'
 
 /*** SHARED ELMENTS ***/
 body
     font-family 'district-thin'
 
 h1, h2, h3
-    font-family 'polaris-regular'
+    headerFont()
 
 h2
     line-height 38px
@@ -132,7 +133,7 @@ form
     width 300px
 
     h4
-        font-family 'polaris-regular'
+        headerFont()
         text-align center
 
     p
