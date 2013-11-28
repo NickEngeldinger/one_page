@@ -299,17 +299,49 @@ function init() {
 $('.artist_1').click(function(event) {
     event.preventDefault();
     var gallery = blueimp.Gallery([
-        'img/artist1/tat1.jpg',
-        'img/artist1/tat2.jpg',
-        'img/artist1/tat3.jpg'
+        {    
+            title : 'Tat Title 1',
+            href  : 'img/artist1/tat1.jpg',
+            type  : 'image/jpeg'
+        },
+        {
+            title : 'Tat Title 2',
+            href  : 'img/artist1/tat2.jpg',
+            type  : 'image/jpeg'
+        },
+        {
+            title : 'Tat Title 3',
+            href  : 'img/artist1/tat3.jpg',
+            type  : 'image/jpeg'
+        }
     ]);   
 });
 
 $('.artist_2').click(function(event) {
     event.preventDefault();
     var gallery = blueimp.Gallery([
-        'img/artist2/tat4.jpg',
-        'img/artist2/tat5.jpg',
-        'img/artist2/tat6.jpg'
+        {
+            title : 'Tat Title 3',
+            href  : 'img/artist2/tat4.jpg',
+            type  : 'image/jpeg'
+        },
+        {
+            title : 'Tat Title 4',
+            href  : 'img/artist2/tat5.jpg',
+            type  : 'image/jpeg'
+        },
+        {
+            title : 'Tat Title 5',
+            href  : 'img/artist2/tat6.jpg',
+            type  : 'image/jpeg'
+        }
     ]);
 });
+
+$('artist_3').click(function(event) {
+    event.preventDefault();
+});
+
+$('artist_4').click(function(event) {
+    event.preventDefault()
+});;
