@@ -27,3 +27,5 @@ form{margin:0 auto;margin-top:40px;width:400px}
 .modal-dialog h4{font-family:'polaris-regular';text-align:center}
 .modal-dialog p{font-size:18px;text-align:center}
 .modal-backdrop{background-color:rgba(0,0,0,0.7)}
+footer a{color:#666;}
+footer a:hover{color:#949494}

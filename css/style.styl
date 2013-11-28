@@ -30,6 +30,8 @@ btnGray = #666
 borderGray = lighten(btnGray, 10%)
 formError = #ff6
 //Bootstrap native error color #953b39
+linkColor = #666
+linkHover = lighten(linkColor, 30%)
 
 /*** MIXINS ***/
 
@@ -140,3 +142,12 @@ form
 .modal-backdrop
     background-color rgba(0,0,0,0.7)
 
+/*** FOOTER ***/
+
+footer
+
+    a
+        color linkColor
+        
+        &:hover
+            color linkHover
