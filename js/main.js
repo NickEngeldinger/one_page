@@ -298,6 +298,8 @@ function init() {
 
 // PORTFOLIO IMAGES MODAL //
 
+
+/*
 var tats = [
     'tattoo1.jpg',
     'tattoo2.jpg',
@@ -314,6 +316,7 @@ var artists = [
 
 //FORGET ROLLING YOUR OWN - USE A PLUGIN LIKE https://github.com/blueimp/Bootstrap-Image-Gallery
 
+
 //Open Modal with first image
 var imgSrc = '/img/' + artists[0] + '/'+ tats[0];
 
@@ -329,3 +332,4 @@ $('.img-portfolio').click(function() {
 //Click next shows next in array
 
 //Click back shows previous in array
+*/
