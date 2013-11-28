@@ -295,3 +295,21 @@ function init() {
         clickable : false
     });
 }
+
+$('.artist_1').click(function(event) {
+    event.preventDefault();
+    var gallery = blueimp.Gallery([
+        'img/artist1/tat1.jpg',
+        'img/artist1/tat2.jpg',
+        'img/artist1/tat3.jpg'
+    ]);   
+});
+
+$('.artist_2').click(function(event) {
+    event.preventDefault();
+    var gallery = blueimp.Gallery([
+        'img/artist2/tat4.jpg',
+        'img/artist2/tat5.jpg',
+        'img/artist2/tat6.jpg'
+    ]);
+});

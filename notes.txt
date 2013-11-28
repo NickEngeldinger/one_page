@@ -3,3 +3,5 @@ TODO:
 	Can scroll spy be added to side nav?
 
 	AJAX email handling
+
+	Add custom button styling (flat?)
