@@ -1,5 +1,5 @@
 TODO:
 
-	New favicon with final h1 "5" font
+	Can scroll spy be added to side nav?
 
 	AJAX email handling

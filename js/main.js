@@ -139,3 +139,193 @@ var checkInputs = function() {
 $('#send_form').click(function() {
     checkInputs();
 });
+
+// CUSTOM GOOGLE MAP //
+google.maps.event.addDomListener(window, 'load', init);
+
+function init() {
+    var myLatLng = new google.maps.LatLng(44.954467, -122.983671);
+    var mapOptions = {
+        zoom : 14,
+        center : myLatLng,
+        disableDefaultUI : true,
+        styles : [
+                    {
+                        "featureType" : "water",
+                        "elementType" : "geometry",
+                        "stylers" : [
+                            {
+                                "color" : "#a2daf2"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType" : "landscape.man_made",
+                        "elementType" : "geometry",
+                        "stylers" : [
+                            {
+                                "color" : "#f7f1df"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType" : "landscape.natural",
+                        "elementType" : "geometry",
+                        "stylers" : [
+                            {
+                                "color" : "#d0e3b4"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType" : "landscape.natural.terrain",
+                        "elementType" : "geometry",
+                        "stylers" : [
+                            {
+                                "visibility" : "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType" : "poi.park",
+                        "elementType" : "geometry",
+                        "stylers": [
+                            {
+                                "color" : "#bde6ab"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType" : "poi",
+                        "elementType" : "labels",
+                        "stylers" : [
+                            {
+                                "visibility" : "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType" : "poi.medical",
+                        "elementType" : "geometry",
+                        "stylers" : [
+                            {
+                                "color" : "#fbd3da"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType" : "poi.business",
+                        "stylers" : [
+                            {
+                                "visibility" : "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType" : "road",
+                        "elementType" : "geometry.stroke",
+                        "stylers" : [
+                            {
+                                "visibility" : "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType" : "road.highway",
+                        "elementType" : "geometry.fill",
+                        "stylers" : [
+                            {
+                                "color" : "#ffe15f"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType" : "road.highway",
+                        "elementType" : "geometry.stroke",
+                        "stylers": [
+                            {
+                                "color" : "#efd151"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType" : "road.arterial",
+                        "elementType" : "geometry.fill",
+                        "stylers" : [
+                            {
+                                "color" : "#ffffff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType" : "road.local",
+                        "elementType" : "geometry.fill",
+                        "stylers" : [
+                            {
+                                "color" : "black"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType" : "transit.station.airport",
+                        "elementType" : "geometry.fill",
+                        "stylers" : [
+                            {
+                                "color" : "#cfb2db"
+                            }
+                        ]
+                    }
+        ]
+    };
+    var mapElement = document.getElementById('location');
+    
+    var map = new google.maps.Map(mapElement, mapOptions);
+ 
+    var iconImage = {
+        url : 'img/map_icon.png',
+        size : new google.maps.Size(186, 72),
+        origin : new google.maps.Point(0, 0),
+        anchor : new google.maps.Point(88, 72)
+    }
+
+    var marker = new google.maps.Marker({
+        position : myLatLng,
+        map : map,
+        icon : iconImage,
+        clickable : false
+    });
+}
+
+// PORTFOLIO IMAGES MODAL //
+
+var tats = [
+    'tattoo1.jpg',
+    'tattoo2.jpg',
+    'tattoo3.jpg',
+    'tattoo4.jpg' 
+];
+
+var artists = [
+    'misty',
+    'tara',
+    'wendy',
+    'gemma'
+];
+
+//FORGET ROLLING YOUR OWN - USE A PLUGIN LIKE https://github.com/blueimp/Bootstrap-Image-Gallery
+
+//Open Modal with first image
+var imgSrc = '/img/' + artists[0] + '/'+ tats[0];
+
+var artistModal = function() {
+    $('.artist_work').attr('src', imgSrc);
+    $('#artist_modal').modal('show')
+};
+
+$('.img-portfolio').click(function() {
+    artistModal();
+});
+
+//Click next shows next in array
+
+//Click back shows previous in array
