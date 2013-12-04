@@ -1,20 +1,24 @@
-// SIDEBAR FUNCTIONALITY
-var
-    $menuClose = $('#menu-close'),
-    $menuToggle = $('#menu-toggle')
+// SIDEBAR
+var sidebarToggle = function() {
+    var
+        menuClose  = document.getElementById('menu-close'),
+        menuToggle = document.getElementById('menu-toggle'),
+        sidebar    = document.getElementbyid('sidebar-wrapper');
 
-$menuClose.click(function(e) {
-    e.preventDefault();
-    $("#sidebar-wrapper").toggleClass("active");
-});
+    menuClose.click(function(e) {
+        e.preventDefault();
+        sidebar.toggleClass("active");
+    });
 
-$menuToggle.click(function(e) {
-    e.preventDefault();
-    $("#sidebar-wrapper").toggleClass("active");
-});
+    menuToggle.click(function(e) {
+        e.preventDefault();
+        sidebar.toggleClass("active");
+    });
+}
+sidebarToggle);
       
 // SMOOTH SCROLLING
-$(function() {
+var pageScroll = $(function() {
     $('a[href*=#]:not([href=#])').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') || location.hostname == this.hostname) {
             
@@ -29,7 +33,8 @@ $(function() {
             }
         }
     });
-});
+}
+pageScroll();
 
 // COPYRIGHT YEAR
 var insertCurrentYear = function() {
@@ -47,33 +52,42 @@ insertCurrentYear();
 var checkInputs = function() {
     
     var 
-        $name  = $('#contact_name'),
-        $email = $('#contact_email'),
-        $msg   = $('#contact_msg');
+        name     = document.getElementById('contact_name'),
+        email    = document.getElementById('contact_email'),
+        msg      = document.getElmenetById('contact_msg'),
+        ne       = document.getElementByClassName('name_error'),
+        ng       = document.getElementByClassName('name_group'),
+	ee       = document.getElementByClassName('email_error'),
+        eg       = document.getElementByClassName('email_group'),
+        ae       = document.getElementByClassName('address_error'),
+        me       = document.getElementByClassName('msg_error'),        
+	mg       = document.getElementByClassName('msg_group'),
+	se       = document.getElementByClassName('submit_error'),
+	errClass = 'has-error'; 
 
     // Could I combine these functions into a loop that
     // takes the few differences as parameters? Lot of
     // repetition here
     var checkName = function() {
-        if ( $name.val.length < 1 ) {
-            $('.name_error').show();
-            $('.name_group').addClass('has-error');
+        if ( name.val.length < 1 ) {
+            ne.show();
+            ng.addClass(errClass);
         }
         else {
-            $('.name_error').hide();
-            $('.name_group').removeClass('has-error');
+            ne.hide();
+            ng.removeClass(errClass);
             return true;
         }
     }
 
     var checkEmail = function() {
-        if ( $email.val.length < 1 ) {
-            $('.email_error').show();
-            $('.email_group').addClass('has-error');
+	if ( email.val.length < 1 ) {
+            ee.show();
+            eg.addClass(errClass);
         }
         else {
-            $('.email_error').hide();
-            $('.email_group').removeClass('.has-error');
+            ee.hide();
+            eg.removeClass('.has-error');
             return true;
         }
     }
@@ -82,24 +96,24 @@ var checkInputs = function() {
         var re = /[^\s@]+@[^\s@]+\.[^\s@]+/;
         return re.test(email_address);
     }
-    
-    if ( !checkAddress($email.val()) ) {
-        $('.address_error').show();
-        $('.email_group').addClass('has-error');
+   
+    if ( !checkAddress(email.val()) ) {
+        ae.show();
+        eg.addClass(errClass);
     }
     else {
-        $('.address_error').hide();
-        $('.email_group').removeClass('has-error');
+        ae.hide();
+        eg.removeClass(errClass);
     }
 
     var checkMsg = function() {
-        if ( $msg.val.length < 1 ) {
-            $('.msg_error').show();
-            $('.msg_group').addClass('has-error');
+        if ( msg.val.length < 1 ) {
+            me.show();
+            mg.addClass(errClass);
         }
         else {
-            $('.msg_error').hide();
-            $('.msg_group').removeClass('has-error');
+            me.hide();
+            mg.removeClass(errClass);
             return true;
         }
     }
@@ -114,16 +128,16 @@ var checkInputs = function() {
                 $('#form_modal').modal('show')
             
                 //Blank form
-                $('#contact_name').val('');
-                $('#contact_email').val('');
-                $('#contact_msg').val('');
+                name.val('');
+                email.val('');
+                msg.val('');
 
                 //Remove error message if previously displayed
-                $('.submit_error').hide();
+                se.hide();
             }
 
             var failureCallback = function() {
-            $('.submit_error').show();
+            se.show();
 
             }
             //Dummy response for development
@@ -302,20 +316,28 @@ function init() {
     });
 }
 
-$('.artist_1').click(function(event) {
-    event.preventDefault();
-    var gallery = blueimp.Gallery([
-        'img/artist1/tat1.jpg',
-        'img/artist1/tat2.jpg',
-        'img/artist1/tat3.jpg'
-    ]);   
-});
+var artistGallery = function() {
+    
+    var
+        $artist1 = $('.artist_1'),
+        $artist2 = $('.artist_2');
 
-$('.artist_2').click(function(event) {
-    event.preventDefault();
-    var gallery = blueimp.Gallery([
-        'img/artist2/tat4.jpg',
-        'img/artist2/tat5.jpg',
-        'img/artist2/tat6.jpg'
-    ]);
-});
+    $artist1.on('click',function(e) {
+        e.preventDefault();
+        var gallery = blueimp.Gallery([
+            'img/artist1/tat1.jpg',
+            'img/artist1/tat2.jpg',
+            'img/artist1/tat3.jpg'
+        ]);
+    });
+
+    $artist2.on('click',function(e) {
+        e.preventDefault();
+        var gallery = blueimp.Gallery([
+            'img/artist2/tat4.jpg',
+            'img/artist2/tat5.jpg',
+            'img/artist2/tat6.jpg'
+	]);
+    });
+}
+artistGallery();
