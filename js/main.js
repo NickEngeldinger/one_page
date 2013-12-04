@@ -1,10 +1,14 @@
 // SIDEBAR FUNCTIONALITY
-$("#menu-close").click(function(e) {
+var
+    $menuClose = $('#menu-close'),
+    $menuToggle = $('#menu-toggle')
+
+$menuClose.click(function(e) {
     e.preventDefault();
     $("#sidebar-wrapper").toggleClass("active");
 });
 
-$("#menu-toggle").click(function(e) {
+$menuToggle.click(function(e) {
     e.preventDefault();
     $("#sidebar-wrapper").toggleClass("active");
 });
@@ -41,15 +45,17 @@ insertCurrentYear();
 
 // FORM VALIDATION
 var checkInputs = function() {
-    var name  = $('#contact_name').val();
-    var email = $('#contact_email').val();
-    var msg   = $('#contact_msg').val();
+    
+    var 
+        $name  = $('#contact_name'),
+        $email = $('#contact_email'),
+        $msg   = $('#contact_msg');
 
     // Could I combine these functions into a loop that
     // takes the few differences as parameters? Lot of
     // repetition here
     var checkName = function() {
-        if ( name.length < 1 ) {
+        if ( $name.val.length < 1 ) {
             $('.name_error').show();
             $('.name_group').addClass('has-error');
         }
@@ -61,7 +67,7 @@ var checkInputs = function() {
     }
 
     var checkEmail = function() {
-        if ( email.length < 1 ) {
+        if ( $email.val.length < 1 ) {
             $('.email_error').show();
             $('.email_group').addClass('has-error');
         }
@@ -77,7 +83,7 @@ var checkInputs = function() {
         return re.test(email_address);
     }
     
-    if ( !checkAddress(email) ) {
+    if ( !checkAddress($email.val()) ) {
         $('.address_error').show();
         $('.email_group').addClass('has-error');
     }
@@ -87,7 +93,7 @@ var checkInputs = function() {
     }
 
     var checkMsg = function() {
-        if ( msg.length < 1 ) {
+        if ( $msg.val.length < 1 ) {
             $('.msg_error').show();
             $('.msg_group').addClass('has-error');
         }
