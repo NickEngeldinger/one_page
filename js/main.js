@@ -5,17 +5,17 @@ var sidebarToggle = function() {
         menuToggle = document.getElementById('menu-toggle'),
         sidebar    = document.getElementbyid('sidebar-wrapper');
 
-    menuClose.click(function(e) {
+    menuClose.on('click',function(e) {
         e.preventDefault();
-        sidebar.toggleClass("active");
+        sidebar.toggleClass('active');
     });
 
-    menuToggle.click(function(e) {
+    menuToggle.on('click',function(e) {
         e.preventDefault();
-        sidebar.toggleClass("active");
+        sidebar.toggleClass('active');
     });
 }
-sidebarToggle);
+sidebarToggle();
       
 // SMOOTH SCROLLING
 var pageScroll = $(function() {
@@ -44,7 +44,9 @@ var insertCurrentYear = function() {
         theYear = theYear + 1900;
     }
 
-    $('#currentYear').append(theYear);
+    var yearEl = document.getElementById('currentYear');
+
+    yearEl.appendChild(theYear);
 }
 insertCurrentYear();
 
@@ -87,7 +89,7 @@ var checkInputs = function() {
         }
         else {
             ee.hide();
-            eg.removeClass('.has-error');
+            eg.removeClass(errClass);
             return true;
         }
     }
@@ -156,9 +158,14 @@ var checkInputs = function() {
     combined_validation();
 }
 
-$('#send_form').click(function() {
-    checkInputs();
-});
+var validateForm = function() {
+    var formSubmit = document.getElementById('send_form');
+
+    formSubmit.on('click',function() {
+        checkInputs();
+    });
+}
+validateForm();
 
 // CUSTOM GOOGLE MAP //
 google.maps.event.addDomListener(window, 'load', init);
