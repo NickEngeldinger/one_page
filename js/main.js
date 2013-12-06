@@ -1,16 +1,24 @@
-// SIDEBAR FUNCTIONALITY
-$("#menu-close").click(function(e) {
-    e.preventDefault();
-    $("#sidebar-wrapper").toggleClass("active");
-});
+// SIDEBAR
+var sidebarToggle = function() {
+    var
+        menuClose  = document.getElementById('menu-close'),
+        menuToggle = document.getElementById('menu-toggle'),
+        sidebar    = document.getElementById('sidebar-wrapper');
 
-$("#menu-toggle").click(function(e) {
-    e.preventDefault();
-    $("#sidebar-wrapper").toggleClass("active");
-});
+    menuClose.on('click',function(e) {
+        e.preventDefault();
+        sidebar.toggleClass('active');
+    });
+
+    menuToggle.on('click',function(e) {
+        e.preventDefault();
+        sidebar.toggleClass('active');
+    });
+}
+sidebarToggle();
       
 // SMOOTH SCROLLING
-$(function() {
+var pageScroll = $(function() {
     $('a[href*=#]:not([href=#])').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') || location.hostname == this.hostname) {
             
@@ -25,7 +33,8 @@ $(function() {
             }
         }
     });
-});
+}
+pageScroll();
 
 // COPYRIGHT YEAR
 var insertCurrentYear = function() {
@@ -35,39 +44,52 @@ var insertCurrentYear = function() {
         theYear = theYear + 1900;
     }
 
-    $('#currentYear').append(theYear);
+    var yearEl = document.getElementById('currentYear');
+
+    yearEl.appendChild(theYear);
 }
 insertCurrentYear();
 
 // FORM VALIDATION
 var checkInputs = function() {
-    var name  = $('#contact_name').val();
-    var email = $('#contact_email').val();
-    var msg   = $('#contact_msg').val();
+    
+    var 
+        name     = document.getElementById('contact_name'),
+        email    = document.getElementById('contact_email'),
+        msg      = document.getElementById('contact_msg'),
+        ne       = document.getElementByClassName('name_error'),
+        ng       = document.getElementByClassName('name_group'),
+        ee       = document.getElementByClassName('email_error'),
+        eg       = document.getElementByClassName('email_group'),
+        ae       = document.getElementByClassName('address_error'),
+        me       = document.getElementByClassName('msg_error'),
+        mg       = document.getElementByClassName('msg_group'),
+        se       = document.getElementByClassName('submit_error'),
+        errClass = 'has-error'; 
 
     // Could I combine these functions into a loop that
     // takes the few differences as parameters? Lots of
     // repetition here
     var checkName = function() {
-        if ( name.length < 1 ) {
-            $('.name_error').show();
-            $('.name_group').addClass('has-error');
+        if ( name.val.length < 1 ) {
+            ne.show();
+            ng.addClass(errClass);
         }
         else {
-            $('.name_error').hide();
-            $('.name_group').removeClass('has-error');
+            ne.hide();
+            ng.removeClass(errClass);
             return true;
         }
     }
 
     var checkEmail = function() {
-        if ( email.length < 1 ) {
-            $('.email_error').show();
-            $('.email_group').addClass('has-error');
+	if ( email.val.length < 1 ) {
+            ee.show();
+            eg.addClass(errClass);
         }
         else {
-            $('.email_error').hide();
-            $('.email_group').removeClass('.has-error');
+            ee.hide();
+            eg.removeClass(errClass);
             return true;
         }
     }
@@ -76,24 +98,24 @@ var checkInputs = function() {
         var re = /[^\s@]+@[^\s@]+\.[^\s@]+/;
         return re.test(email_address);
     }
-    
-    if ( !checkAddress(email) ) {
-        $('.address_error').show();
-        $('.email_group').addClass('has-error');
+   
+    if ( !checkAddress(email.val()) ) {
+        ae.show();
+        eg.addClass(errClass);
     }
     else {
-        $('.address_error').hide();
-        $('.email_group').removeClass('has-error');
+        ae.hide();
+        eg.removeClass(errClass);
     }
 
     var checkMsg = function() {
-        if ( msg.length < 1 ) {
-            $('.msg_error').show();
-            $('.msg_group').addClass('has-error');
+        if ( msg.val.length < 1 ) {
+            me.show();
+            mg.addClass(errClass);
         }
         else {
-            $('.msg_error').hide();
-            $('.msg_group').removeClass('has-error');
+            me.hide();
+            mg.removeClass(errClass);
             return true;
         }
     }
@@ -108,16 +130,16 @@ var checkInputs = function() {
                 $('#form_modal').modal('show')
             
                 //Blank form
-                $('#contact_name').val('');
-                $('#contact_email').val('');
-                $('#contact_msg').val('');
+                name.val('');
+                email.val('');
+                msg.val('');
 
                 //Remove error message if previously displayed
-                $('.submit_error').hide();
+                se.hide();
             }
 
             var failureCallback = function() {
-            $('.submit_error').show();
+            se.show();
 
             }
             //Dummy response for development
@@ -136,9 +158,14 @@ var checkInputs = function() {
     combined_validation();
 }
 
-$('#send_form').click(function() {
-    checkInputs();
-});
+var validateForm = function() {
+    var formSubmit = document.getElementById('send_form');
+
+    formSubmit.on('click',function() {
+        checkInputs();
+    });
+}
+validateForm();
 
 // CUSTOM GOOGLE MAP //
 google.maps.event.addDomListener(window, 'load', init);
@@ -296,52 +323,62 @@ function init() {
     });
 }
 
-$('.artist_1').click(function(event) {
-    event.preventDefault();
-    var gallery = blueimp.Gallery([
-        {    
-            title : 'Tat Title 1',
-            href  : 'img/artist1/tat1.jpg',
-            type  : 'image/jpeg'
-        },
-        {
-            title : 'Tat Title 2',
-            href  : 'img/artist1/tat2.jpg',
-            type  : 'image/jpeg'
-        },
-        {
-            title : 'Tat Title 3',
-            href  : 'img/artist1/tat3.jpg',
-            type  : 'image/jpeg'
-        }
-    ]);   
-});
+var artistGallery = function() {
+    
+    var
+        artist1 = document.getElementByClassName('artist_1'),
+        artist2 = document.getElementByClassName('artist_2'),
+        artist3 = document.getElementByClassname('artist_3'),
+        artist4 = document.getElementByClassName('artist_4');
 
-$('.artist_2').click(function(event) {
-    event.preventDefault();
-    var gallery = blueimp.Gallery([
-        {
-            title : 'Tat Title 3',
-            href  : 'img/artist2/tat4.jpg',
-            type  : 'image/jpeg'
-        },
-        {
-            title : 'Tat Title 4',
-            href  : 'img/artist2/tat5.jpg',
-            type  : 'image/jpeg'
-        },
-        {
-            title : 'Tat Title 5',
-            href  : 'img/artist2/tat6.jpg',
-            type  : 'image/jpeg'
-        }
-    ]);
-});
+    artist1.on('click',function(e) {
+        e.preventDefault();
+        var gallery = blueimp.Gallery([
+            {
+                title : 'Orchid Tacos',
+                href  : 'img/artist1/tat1.jpg',
+                type  : 'image/jpeg'
+            },
+            {
+                title : 'Spongebob RogerPants',
+                href  : 'img/artist1/tat2.jpg',
+                type  : 'image/jpeg'
+            },
+            {
+                title : 'Stardust Sleeve',
+                href  : 'img/artist1/tat3.jpg',
+                type  : 'image/jpeg'
+            }
+        ]);
+    });
 
-$('artist_3').click(function(event) {
-    event.preventDefault();
-});
+    artist2.on('click',function(e) {
+        e.preventDefault();
+        var gallery = blueimp.Gallery([
+            {
+                title : 'Chinese Lettering',
+                href  : 'img/artist2/tat4.jpg',
+                type  : 'image/jpeg'
+            },
+            {
+                title : 'Baby Foot Prints',
+                href  : 'img/artist2/tat5.jpg',
+                type  : 'image/jpeg'
+            },
+            {
+                title : 'Mike\'s Taco Truck',
+                href  : 'img/artist2/tat6.jpg',
+                type  : 'image/jpeg'
+            }
+	   ]);
+    });
 
-$('artist_4').click(function(event) {
-    event.preventDefault()
-});
+    artist3.on('click',function(e) {
+        e.preventDefault();
+    });
+
+    artist4.on('click',function(e) {
+        e.preventDefault();
+    });
+}
+artistGallery();
