@@ -46,7 +46,7 @@ var checkInputs = function() {
     var msg   = $('#contact_msg').val();
 
     // Could I combine these functions into a loop that
-    // takes the few differences as parameters? Lot of
+    // takes the few differences as parameters? Lots of
     // repetition here
     var checkName = function() {
         if ( name.length < 1 ) {
@@ -344,4 +344,4 @@ $('artist_3').click(function(event) {
 
 $('artist_4').click(function(event) {
     event.preventDefault()
-});;
+});
