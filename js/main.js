@@ -14,7 +14,7 @@ var sidebarToggle = function() {
         e.preventDefault();
         sidebar.toggleClass('active');
     });
-}
+};
 sidebarToggle();
       
 // SMOOTH SCROLLING
@@ -33,12 +33,12 @@ var pageScroll = $(function() {
             }
         }
     });
-}
+});
 pageScroll();
 
 // COPYRIGHT YEAR
 var insertCurrentYear = function() {
-    var now = new Date;
+    var now = new Date();
     var theYear = now.getYear();
     if ( theYear < 1900 ) {
         theYear = theYear + 1900;
@@ -47,7 +47,7 @@ var insertCurrentYear = function() {
     var yearEl = document.getElementById('currentYear');
 
     yearEl.appendChild(theYear);
-}
+};
 insertCurrentYear();
 
 // FORM VALIDATION
@@ -80,10 +80,10 @@ var checkInputs = function() {
             ng.removeClass(errClass);
             return true;
         }
-    }
+    };
 
     var checkEmail = function() {
-	if ( email.val.length < 1 ) {
+        if ( email.val.length < 1 ) {
             ee.show();
             eg.addClass(errClass);
         }
@@ -92,12 +92,12 @@ var checkInputs = function() {
             eg.removeClass(errClass);
             return true;
         }
-    }
+    };
 
     var checkAddress = function(email_address) {
         var re = /[^\s@]+@[^\s@]+\.[^\s@]+/;
         return re.test(email_address);
-    }
+    };
    
     if ( !checkAddress(email.val()) ) {
         ae.show();
@@ -118,7 +118,7 @@ var checkInputs = function() {
             mg.removeClass(errClass);
             return true;
         }
-    }
+    };
 
     var combined_validation = function() {
     
@@ -127,7 +127,9 @@ var checkInputs = function() {
 
             var successCallback = function() {
                 //Fire modal thanking for messge
-                $('#form_modal').modal('show')
+                var formModal = document.getElementById('form_modal');
+                
+                formModal.modal('show');
             
                 //Blank form
                 name.val('');
@@ -136,27 +138,26 @@ var checkInputs = function() {
 
                 //Remove error message if previously displayed
                 se.hide();
-            }
+            };
 
             var failureCallback = function() {
-            se.show();
-
-            }
+                se.show();
+            };
             //Dummy response for development
             successCallback();
-        }
+        };
 
-        if ( checkName() & checkEmail() & checkAddress(email) & checkMsg() ) {
+        if ( checkName() && checkEmail() && checkAddress(email) && checkMsg() ) {
             //TODO: ADD AJAX EMAIL SEND FUCNTION CALL
             ajax_call();
         }
-    }
+    };
 
     checkName();
     checkEmail();
     checkMsg();
     combined_validation();
-}
+};
 
 var validateForm = function() {
     var formSubmit = document.getElementById('send_form');
@@ -313,7 +314,7 @@ function init() {
         size : new google.maps.Size(186, 72),
         origin : new google.maps.Point(0, 0),
         anchor : new google.maps.Point(88, 72)
-    }
+    };
 
     var marker = new google.maps.Marker({
         position : myLatLng,
@@ -370,7 +371,7 @@ var artistGallery = function() {
                 href  : 'img/artist2/tat6.jpg',
                 type  : 'image/jpeg'
             }
-	   ]);
+        ]);
     });
 
     artist3.on('click',function(e) {
@@ -380,5 +381,5 @@ var artistGallery = function() {
     artist4.on('click',function(e) {
         e.preventDefault();
     });
-}
+};
 artistGallery();
